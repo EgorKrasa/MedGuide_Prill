@@ -106,7 +106,13 @@ def _image_url_for(drug_id: str) -> str | None:
     index = _image_index_for(drug_id)
     if not base or index is None:
         return None
-    return f"{base}/{index}"
+    # Support both URL styles:
+    # - /media/drugs/{id} (no extension)
+    # - /static/drugs/{id}.{ext}
+    if base.endswith("/media/drugs"):
+        return f"{base}/{index}"
+    ext = _IMAGE_EXT_BY_INDEX.get(index, ".jpg")
+    return f"{base}/{index}{ext}"
 
 
 @app.get("/media/drugs/{index}")

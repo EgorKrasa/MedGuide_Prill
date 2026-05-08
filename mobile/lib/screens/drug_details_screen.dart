@@ -478,9 +478,27 @@ class _DrugImageBox extends StatelessWidget {
       future: _resolveAsset(),
       builder: (context, snap) {
         final asset = snap.data;
+        final placeholder = Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: cs.surfaceContainerHighest.withOpacity(0.6),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: cs.outlineVariant),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.image_outlined, size: 48, color: cs.primary),
+              const SizedBox(height: 8),
+              Text('Фото товара', style: Theme.of(context).textTheme.titleSmall),
+              const SizedBox(height: 2),
+              Text('Скоро добавим', style: Theme.of(context).textTheme.bodySmall),
+            ],
+          ),
+        );
 
         Widget fromAsset() {
-          if (asset == null || asset.isEmpty) return const SizedBox.shrink();
+          if (asset == null || asset.isEmpty) return placeholder;
           return Image.asset(
             asset,
             fit: BoxFit.contain,
@@ -500,24 +518,7 @@ class _DrugImageBox extends StatelessWidget {
         } else if (asset != null && asset.isNotEmpty) {
           content = fromAsset();
         } else {
-          return Container(
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: cs.surfaceContainerHighest.withOpacity(0.6),
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: cs.outlineVariant),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.image_outlined, size: 48, color: cs.primary),
-                const SizedBox(height: 8),
-                Text('Фото товара', style: Theme.of(context).textTheme.titleSmall),
-                const SizedBox(height: 2),
-                Text('Скоро добавим', style: Theme.of(context).textTheme.bodySmall),
-              ],
-            ),
-          );
+          return placeholder;
         }
 
         return Container(
