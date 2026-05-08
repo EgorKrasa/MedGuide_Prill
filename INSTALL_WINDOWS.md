@@ -155,6 +155,19 @@ Backend не запущен или не слушает 8000 — см. разде
 
 ## 11. APK
 
+Для APK нужен Android SDK. Проверка:
+
+```powershell
+flutter doctor
+flutter doctor --android-licenses
+```
+
+Если есть ошибка `No Android SDK found` — ставь Android Studio и в SDK Manager докинь:
+- Android SDK Platform
+- Android SDK Build-Tools
+- Android SDK Platform-Tools
+- Android SDK Command-line Tools
+
 Каталог вшит в **assets**, для обычного APK сервер не нужен. Корень `prill`, потом:
 
 ```powershell

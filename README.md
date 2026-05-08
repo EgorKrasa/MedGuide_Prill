@@ -114,15 +114,24 @@ flutter run -d chrome
 
 ## 3.1) APK под Android (release)
 
+Перед сборкой APK на новом ПК:
+
+```powershell
+flutter doctor
+flutter doctor --android-licenses
+```
+
+Если ругается на `No Android SDK found` — ставь Android Studio + Android SDK (platform-tools, build-tools, command-line tools), потом снова `flutter doctor`.
+
 Из папки `mobile`:
 
 ```powershell
 cd .\mobile
 flutter pub get
-flutter build apk --release
+flutter build apk --release --dart-define=PRILL_API_URL=https://prill-api.onrender.com
 ```
 
-Файл обычно тут: `mobile\build\app\outputs\flutter-apk\app-release.apk`.  
+Файл обычно тут: `mobile\build\app\outputs\flutter-apk\app-release.apk`.
 В `android` сейчас release может быть на debug-ключах — для магазина потом нормальная подпись, крч это отдельная история.
 
 ---
