@@ -53,5 +53,8 @@ def upgrade_schema(engine: Engine) -> None:
     ]
 
     with engine.begin() as conn:
+        drugs_exists = conn.execute(text("SELECT to_regclass('public.drugs')")).scalar_one_or_none()
+        if not drugs_exists:
+            return
         for stmt in stmts:
             conn.execute(text(stmt))
