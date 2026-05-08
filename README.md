@@ -2,6 +2,12 @@
 
 Крч это мой дипломный справочник лекарств, стек такой: **Flutter (web/Android) + FastAPI + PostgreSQL**. Записал сюда шаги, чтобы самому не забыть, ну типа шпаргалка.
 
+Сейчас мой рабочий сценарий такой:
+
+- Backend + фото крутятся на Render (`https://prill-api.onrender.com`).
+- APK собираю из ASCII-пути (`C:\prill_new2\mobile`), чтобы не ловить баги из-за кириллицы в пути.
+- Проверяю APK в LDPlayer (ставлю всегда поверх удаленной старой версии приложения).
+
 Само приложение по умолчанию берёт каталог из **`mobile/assets/drugs.json`** внутри сборки — **сервер не обязателен** (удобно для web и **APK**).  
 Если хочу remote API (prod), ставлю `PRILL_API_URL` и всё работает с интернета.
 
@@ -133,6 +139,24 @@ flutter build apk --release --dart-define=PRILL_API_URL=https://prill-api.onrend
 
 Файл обычно тут: `mobile\build\app\outputs\flutter-apk\app-release.apk`.
 В `android` сейчас release может быть на debug-ключах — для магазина потом нормальная подпись, крч это отдельная история.
+
+Если собираю с безопасного пути (мой текущий вариант):
+
+```powershell
+cd C:\prill_new2\mobile
+C:\flutter\bin\flutter.bat clean
+C:\flutter\bin\flutter.bat pub get
+C:\flutter\bin\flutter.bat build apk --release --dart-define=PRILL_API_URL=https://prill-api.onrender.com
+```
+
+APK после сборки тут же:
+
+`C:\prill_new2\mobile\build\app\outputs\flutter-apk\app-release.apk`
+
+Проверка, что серверное фото реально работает перед запуском APK:
+
+- `https://prill-api.onrender.com/health`
+- `https://prill-api.onrender.com/media/drugs/10`
 
 ---
 
