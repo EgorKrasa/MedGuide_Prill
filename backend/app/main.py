@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import re
+from pathlib import Path
 from typing import Annotated
 
 from fastapi import Depends, FastAPI, HTTPException, Query
@@ -18,6 +19,22 @@ from .seed import seed_from_mobile_json
 from .settings import settings
 
 app = FastAPI(title="PRILL API", version="0.1.0")
+_STATIC_ROOT = Path(__file__).resolve().parents[1] / "static"
+if _STATIC_ROOT.exists():
+    app.mount("/static", StaticFiles(directory=str(_STATIC_ROOT)), name="static")
+_STATIC_DRUGS_DIR = _STATIC_ROOT / "drugs"
+_IMAGE_EXT_BY_INDEX: dict[int, str] = {}
+if _STATIC_DRUGS_DIR.exists():
+    for path in _STATIC_DRUGS_DIR.iterdir():
+        if not path.is_file():
+            continue
+        if not path.stem.isdigit():
+            continue
+        ext = path.suffix.lower()
+        if ext not in {".jpg", ".jpeg", ".png", ".webp"}:
+            continue
+        idx = int(path.stem)
+        _IMAGE_EXT_BY_INDEX.setdefault(idx, ext)
 
 
 def _image_file_path_for(index: int) -> Path | None:
