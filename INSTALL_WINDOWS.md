@@ -172,15 +172,15 @@ flutter build apk --release
 Если backend уже в интернете (например Render):
 
 ```powershell
-set PRILL_API_URL=https://<твой-render-url>
-.\scripts\run_mobile_prod.bat
+cd .\mobile
+flutter run -d chrome --dart-define=PRILL_API_URL=https://<твой-render-url>
 ```
 
 APK с удаленным API:
 
 ```powershell
-set PRILL_API_URL=https://<твой-render-url>
-.\scripts\build_apk_prod.bat
+cd .\mobile
+flutter build apk --release --dart-define=PRILL_API_URL=https://<твой-render-url>
 ```
 
 Подробный деплой backend/db/storage: см. `DEPLOY_RENDER.md`.

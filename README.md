@@ -8,13 +8,14 @@
 Коротко по режимам:
 
 - **dev (локальный API):**
-  - `.\scripts\run_mobile_dev.bat`
+  - `cd .\mobile`
+  - `flutter run -d chrome --dart-define=PRILL_API_URL=http://127.0.0.1:8000`
 - **prod (удаленный API):**
-  - `set PRILL_API_URL=https://<твой-render-url>`
-  - `.\scripts\run_mobile_prod.bat`
+  - `cd .\mobile`
+  - `flutter run -d chrome --dart-define=PRILL_API_URL=https://<твой-render-url>`
 - **prod APK:**
-  - `set PRILL_API_URL=https://<твой-render-url>`
-  - `.\scripts\build_apk_prod.bat`
+  - `cd .\mobile`
+  - `flutter build apk --release --dart-define=PRILL_API_URL=https://<твой-render-url>`
 
 Полный деплой в интернет: см. `DEPLOY_RENDER.md`.
 

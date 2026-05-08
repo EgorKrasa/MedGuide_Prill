@@ -488,7 +488,8 @@ class _DrugImageBox extends StatelessWidget {
 
         Widget content;
         final remote = imageUrl?.trim() ?? "";
-        if (remote.isNotEmpty) {
+        final remoteAllowed = remote.isNotEmpty && !remote.contains('example.com');
+        if (remoteAllowed) {
           content = Image.network(
             remote,
             fit: BoxFit.contain,

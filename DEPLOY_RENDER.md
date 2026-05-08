@@ -60,15 +60,15 @@ Invoke-RestMethod -Method Post "https://<service>.onrender.com/admin/seed?token=
 ### Web (prod URL)
 
 ```powershell
-set PRILL_API_URL=https://<service>.onrender.com
-.\scripts\run_mobile_prod.bat
+cd .\mobile
+flutter run -d chrome --dart-define=PRILL_API_URL=https://<service>.onrender.com
 ```
 
 ### APK (prod URL)
 
 ```powershell
-set PRILL_API_URL=https://<service>.onrender.com
-.\scripts\build_apk_prod.bat
+cd .\mobile
+flutter build apk --release --dart-define=PRILL_API_URL=https://<service>.onrender.com
 ```
 
 APK: `mobile\build\app\outputs\flutter-apk\app-release.apk`

@@ -30,6 +30,7 @@ class PrillApp extends StatelessWidget {
         highlightColor: Colors.transparent,
         splashColor: Colors.transparent,
         hoverColor: Colors.transparent,
+        focusColor: Colors.transparent,
         scaffoldBackgroundColor: const Color(0xFFF3F7F5),
         appBarTheme: AppBarTheme(
           centerTitle: false,
@@ -79,7 +80,20 @@ class PrillApp extends StatelessWidget {
             minimumSize: const Size.fromHeight(48),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
             textStyle: const TextStyle(fontWeight: FontWeight.w700),
+            overlayColor: Colors.transparent,
           ),
+        ),
+        iconButtonTheme: IconButtonThemeData(
+          style: IconButton.styleFrom(overlayColor: Colors.transparent),
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(overlayColor: Colors.transparent),
+        ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(overlayColor: Colors.transparent),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(overlayColor: Colors.transparent),
         ),
         listTileTheme: const ListTileThemeData(
           contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
