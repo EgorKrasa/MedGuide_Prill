@@ -21,6 +21,11 @@ class ResultsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final visibleSymptoms = symptoms
+        .map((s) => s.trim())
+        .where((s) => s.isNotEmpty)
+        .toList(growable: false);
+    final colors = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Результаты подбора'),
@@ -38,7 +43,7 @@ class ResultsScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      if (symptoms.isNotEmpty) ...[
+                      if (visibleSymptoms.isNotEmpty) ...[
                         Text(
                           'Симптомы',
                           style: Theme.of(context).textTheme.titleMedium,
@@ -47,7 +52,18 @@ class ResultsScreen extends StatelessWidget {
                         Wrap(
                           spacing: 8,
                           runSpacing: 8,
-                          children: [for (final s in symptoms) Chip(label: Text(s))],
+                          children: [
+                            for (final s in visibleSymptoms)
+                              Chip(
+                                label: Text(
+                                  s,
+                                  style: TextStyle(
+                                    color: colors.onSurface,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                          ],
                         ),
                         const SizedBox(height: 8),
                       ],
@@ -62,7 +78,7 @@ class ResultsScreen extends StatelessWidget {
                   child: Padding(
                     padding: AppSpacing.cardPadding,
                     child: Text(
-                      symptoms.isNotEmpty
+                      visibleSymptoms.isNotEmpty
                           ? 'По выбранным симптомам ничего не найдено. Попробуй сформулировать иначе или добавь/удали симптом.'
                           : 'Ничего не найдено. Измени запрос и повтори поиск.',
                     ),

@@ -393,6 +393,10 @@ class _DrugImageBox extends StatelessWidget {
   });
 
   static const _ext = ['jpg', 'jpeg', 'png', 'webp'];
+  static const _defaultApiBase = String.fromEnvironment(
+    'PRILL_API_URL',
+    defaultValue: 'https://prill-api.onrender.com',
+  );
   static Future<Set<String>>? _manifestAssetsFuture;
   static const Map<String, int> _indexById = {
     'парацетамол': 1,
@@ -486,17 +490,12 @@ class _DrugImageBox extends StatelessWidget {
           );
         }
 
+        final remoteCandidates = _remoteCandidates();
         Widget content;
-        final remote = imageUrl?.trim() ?? '';
-        final remoteAllowed = remote.isNotEmpty && !remote.contains('example.com');
-        if (remoteAllowed) {
-          content = Image.network(
-            remote,
-            fit: BoxFit.contain,
-            width: double.infinity,
-            height: double.infinity,
-            alignment: Alignment.center,
-            errorBuilder: (context, error, stackTrace) => fromAsset(),
+        if (remoteCandidates.isNotEmpty) {
+          content = _networkWithFallback(
+            urls: remoteCandidates,
+            fallback: fromAsset(),
           );
         } else if (asset != null && asset.isNotEmpty) {
           content = fromAsset();
@@ -536,6 +535,54 @@ class _DrugImageBox extends StatelessWidget {
               child: content,
             ),
           ),
+        );
+      },
+    );
+  }
+
+  List<String> _remoteCandidates() {
+    final out = <String>[];
+    final seen = <String>{};
+    final remote = imageUrl?.trim() ?? '';
+
+    void add(String url) {
+      final u = url.trim();
+      if (u.isEmpty || seen.contains(u)) return;
+      seen.add(u);
+      out.add(u);
+    }
+
+    if (remote.isNotEmpty && !remote.contains('example.com')) {
+      add(remote);
+    }
+
+    final idx = imageIndex ?? _indexById[drugId.trim().toLowerCase()];
+    if (idx == null) return out;
+
+    final base = _defaultApiBase.trim().replaceAll(RegExp(r'/$'), '');
+    for (final e in _ext) {
+      add('$base/static/drugs/$idx.$e');
+    }
+    return out;
+  }
+
+  Widget _networkWithFallback({
+    required List<String> urls,
+    required Widget fallback,
+    int index = 0,
+  }) {
+    if (index >= urls.length) return fallback;
+    return Image.network(
+      urls[index],
+      fit: BoxFit.contain,
+      width: double.infinity,
+      height: double.infinity,
+      alignment: Alignment.center,
+      errorBuilder: (context, error, stackTrace) {
+        return _networkWithFallback(
+          urls: urls,
+          fallback: fallback,
+          index: index + 1,
         );
       },
     );

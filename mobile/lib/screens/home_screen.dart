@@ -81,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void _addSymptom(String symptom) {
     final s = symptom.trim();
     if (s.isEmpty) return;
-    if (_selectedSymptoms.contains(s)) return;
+    if (_selectedSymptoms.any((x) => x.trim().toLowerCase() == s.toLowerCase())) return;
     setState(() {
       _selectedSymptoms.add(s);
       _controller.clear();
@@ -164,7 +164,11 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _openResults() async {
     final mode = _searchMode;
     final freeQuery = _currentTextController().text.trim();
-    if (mode == 'symptom' && _selectedSymptoms.isEmpty) return;
+    final selectedSymptoms = _selectedSymptoms
+        .map((s) => s.trim())
+        .where((s) => s.isNotEmpty)
+        .toList(growable: false);
+    if (mode == 'symptom' && selectedSymptoms.isEmpty) return;
     if (mode != 'symptom' && freeQuery.isEmpty) return;
 
     setState(() {
@@ -174,7 +178,7 @@ class _HomeScreenState extends State<HomeScreen> {
     try {
       List<Drug> results;
       if (mode == 'symptom') {
-        results = await _repo.searchBySymptoms(_selectedSymptoms);
+        results = await _repo.searchBySymptoms(selectedSymptoms);
       } else {
         results = await _repo.searchByMode(mode: mode, query: freeQuery);
       }
@@ -185,7 +189,7 @@ class _HomeScreenState extends State<HomeScreen> {
       await Navigator.of(context).push(
         MaterialPageRoute(
           builder: (_) => ResultsScreen(
-            symptoms: List.unmodifiable(_selectedSymptoms),
+            symptoms: mode == 'symptom' ? List.unmodifiable(selectedSymptoms) : const <String>[],
             results: filtered,
             favorites: _favorites,
             onToggleFavorite: _toggleFavorite,
