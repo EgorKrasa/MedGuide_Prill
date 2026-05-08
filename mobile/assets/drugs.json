@@ -1,0 +1,1754 @@
+[
+  {
+    "id": "парацетамол",
+    "name": "Парацетамол",
+    "form": "таблетки",
+    "dosage": "325 мг",
+    "dosages": [
+      "325 мг",
+      "500 мг",
+      "1000 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      120,
+      139,
+      158
+    ],
+    "priceRub": 120.0,
+    "activeSubstances": [
+      "парацетамол"
+    ],
+    "indicationsSymptoms": [
+      "боль в мышцах",
+      "головная боль",
+      "температура"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "сахарный диабет"
+    ],
+    "chronicConditionWarnings": [
+      "гипертония"
+    ],
+    "allergyWarnings": [
+      "НПВС"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 12,
+    "pregnancyContraindicated": false,
+    "prescriptionRequired": false
+  },
+  {
+    "id": "ибупрофен",
+    "name": "Ибупрофен",
+    "form": "таблетки",
+    "dosage": "200 мг",
+    "dosages": [
+      "200 мг",
+      "400 мг",
+      "600 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      151,
+      170,
+      189
+    ],
+    "priceRub": 151.0,
+    "activeSubstances": [
+      "ибупрофен"
+    ],
+    "indicationsSymptoms": [
+      "боль в суставах",
+      "головная боль",
+      "температура"
+    ],
+    "contraindications": [
+      "гипертония",
+      "гиперчувствительность"
+    ],
+    "chronicConditionWarnings": [
+      "язвенная болезнь"
+    ],
+    "allergyWarnings": [
+      "пенициллины"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 6,
+    "pregnancyContraindicated": false,
+    "prescriptionRequired": false
+  },
+  {
+    "id": "нимесулид",
+    "name": "Нимесулид",
+    "form": "таблетки",
+    "dosage": "100 мг",
+    "dosages": [
+      "100 мг",
+      "200 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      182,
+      201
+    ],
+    "priceRub": 182.0,
+    "activeSubstances": [
+      "нимесулид"
+    ],
+    "indicationsSymptoms": [
+      "боль в мышцах",
+      "боль в суставах"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "язвенная болезнь"
+    ],
+    "chronicConditionWarnings": [
+      "хроническая болезнь печени"
+    ],
+    "allergyWarnings": [
+      "лактоза"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 6,
+    "pregnancyContraindicated": true,
+    "prescriptionRequired": false
+  },
+  {
+    "id": "омепразол",
+    "name": "Омепразол",
+    "form": "капсулы",
+    "dosage": "10 мг",
+    "dosages": [
+      "10 мг",
+      "20 мг",
+      "40 мг"
+    ],
+    "formsAvailable": [
+      "капсулы"
+    ],
+    "pricesRub": [
+      213,
+      232,
+      251
+    ],
+    "priceRub": 213.0,
+    "activeSubstances": [
+      "омепразол"
+    ],
+    "indicationsSymptoms": [
+      "изжога",
+      "тяжесть в животе"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "хроническая болезнь печени"
+    ],
+    "chronicConditionWarnings": [
+      "хроническая болезнь почек"
+    ],
+    "allergyWarnings": [
+      "глютен"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 12,
+    "pregnancyContraindicated": false,
+    "prescriptionRequired": false
+  },
+  {
+    "id": "панкреатин",
+    "name": "Панкреатин",
+    "form": "таблетки",
+    "dosage": "10000 ЕД",
+    "dosages": [
+      "10000 ЕД",
+      "25000 ЕД"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      244,
+      263
+    ],
+    "priceRub": 244.0,
+    "activeSubstances": [
+      "панкреатин"
+    ],
+    "indicationsSymptoms": [
+      "тошнота",
+      "тяжесть в животе"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "хроническая болезнь почек"
+    ],
+    "chronicConditionWarnings": [
+      "сахарный диабет"
+    ],
+    "allergyWarnings": [
+      "ацетилсалициловая кислота"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 6,
+    "pregnancyContraindicated": false,
+    "prescriptionRequired": false
+  },
+  {
+    "id": "амброксол",
+    "name": "Амброксол",
+    "form": "таблетки",
+    "dosage": "30 мг",
+    "dosages": [
+      "30 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      275
+    ],
+    "priceRub": 275.0,
+    "activeSubstances": [
+      "амброксол"
+    ],
+    "indicationsSymptoms": [
+      "боль в горле",
+      "кашель"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "сахарный диабет"
+    ],
+    "chronicConditionWarnings": [
+      "гипертония"
+    ],
+    "allergyWarnings": [
+      "НПВС"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 6,
+    "pregnancyContraindicated": false,
+    "prescriptionRequired": false
+  },
+  {
+    "id": "лоратадин",
+    "name": "Лоратадин",
+    "form": "таблетки",
+    "dosage": "10 мг",
+    "dosages": [
+      "10 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      306
+    ],
+    "priceRub": 306.0,
+    "activeSubstances": [
+      "лоратадин"
+    ],
+    "indicationsSymptoms": [
+      "зуд",
+      "насморк",
+      "чихание"
+    ],
+    "contraindications": [
+      "гипертония",
+      "гиперчувствительность"
+    ],
+    "chronicConditionWarnings": [
+      "язвенная болезнь"
+    ],
+    "allergyWarnings": [
+      "пенициллины"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 12,
+    "pregnancyContraindicated": false,
+    "prescriptionRequired": false
+  },
+  {
+    "id": "дротаверин",
+    "name": "Дротаверин",
+    "form": "таблетки",
+    "dosage": "40 мг",
+    "dosages": [
+      "40 мг",
+      "80 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      337,
+      356
+    ],
+    "priceRub": 337.0,
+    "activeSubstances": [
+      "дротаверин"
+    ],
+    "indicationsSymptoms": [
+      "боль в желудке",
+      "спазмы в животе"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "язвенная болезнь"
+    ],
+    "chronicConditionWarnings": [
+      "хроническая болезнь печени"
+    ],
+    "allergyWarnings": [
+      "лактоза"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 6,
+    "pregnancyContraindicated": false,
+    "prescriptionRequired": false
+  },
+  {
+    "id": "лоперамид",
+    "name": "Лоперамид",
+    "form": "капсулы",
+    "dosage": "2 мг",
+    "dosages": [
+      "2 мг"
+    ],
+    "formsAvailable": [
+      "капсулы"
+    ],
+    "pricesRub": [
+      368
+    ],
+    "priceRub": 368.0,
+    "activeSubstances": [
+      "лоперамид"
+    ],
+    "indicationsSymptoms": [
+      "диарея"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "хроническая болезнь печени"
+    ],
+    "chronicConditionWarnings": [
+      "хроническая болезнь почек"
+    ],
+    "allergyWarnings": [
+      "глютен"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 6,
+    "pregnancyContraindicated": false,
+    "prescriptionRequired": false
+  },
+  {
+    "id": "сертралин",
+    "name": "Сертралин",
+    "form": "таблетки",
+    "dosage": "25 мг",
+    "dosages": [
+      "25 мг",
+      "50 мг",
+      "100 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      399,
+      418,
+      437
+    ],
+    "priceRub": 399.0,
+    "activeSubstances": [
+      "сертралин"
+    ],
+    "indicationsSymptoms": [
+      "бессонница",
+      "депрессивное настроение",
+      "тревожность"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "хроническая болезнь почек"
+    ],
+    "chronicConditionWarnings": [
+      "сахарный диабет"
+    ],
+    "allergyWarnings": [
+      "ацетилсалициловая кислота"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": true,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "флуоксетин",
+    "name": "Флуоксетин",
+    "form": "капсулы",
+    "dosage": "20 мг",
+    "dosages": [
+      "20 мг"
+    ],
+    "formsAvailable": [
+      "капсулы"
+    ],
+    "pricesRub": [
+      430
+    ],
+    "priceRub": 430.0,
+    "activeSubstances": [
+      "флуоксетин"
+    ],
+    "indicationsSymptoms": [
+      "депрессивное настроение",
+      "тревожность"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "сахарный диабет"
+    ],
+    "chronicConditionWarnings": [
+      "гипертония"
+    ],
+    "allergyWarnings": [
+      "НПВС"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": true,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "амитриптилин",
+    "name": "Амитриптилин",
+    "form": "таблетки",
+    "dosage": "10 мг",
+    "dosages": [
+      "10 мг",
+      "25 мг",
+      "50 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      461,
+      480,
+      499
+    ],
+    "priceRub": 461.0,
+    "activeSubstances": [
+      "амитриптилин"
+    ],
+    "indicationsSymptoms": [
+      "бессонница",
+      "депрессивное настроение"
+    ],
+    "contraindications": [
+      "гипертония",
+      "гиперчувствительность"
+    ],
+    "chronicConditionWarnings": [
+      "язвенная болезнь"
+    ],
+    "allergyWarnings": [
+      "пенициллины"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": true,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "диазепам",
+    "name": "Диазепам",
+    "form": "таблетки",
+    "dosage": "2 мг",
+    "dosages": [
+      "2 мг",
+      "5 мг",
+      "10 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      492,
+      511,
+      530
+    ],
+    "priceRub": 492.0,
+    "activeSubstances": [
+      "диазепам"
+    ],
+    "indicationsSymptoms": [
+      "бессонница",
+      "тревожность"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "язвенная болезнь"
+    ],
+    "chronicConditionWarnings": [
+      "хроническая болезнь печени"
+    ],
+    "allergyWarnings": [
+      "лактоза"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": true,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "феназепам",
+    "name": "Феназепам",
+    "form": "таблетки",
+    "dosage": "0.5 мг",
+    "dosages": [
+      "0.5 мг",
+      "1 мг",
+      "2.5 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      523,
+      542,
+      561
+    ],
+    "priceRub": 523.0,
+    "activeSubstances": [
+      "феназепам"
+    ],
+    "indicationsSymptoms": [
+      "паническая атака",
+      "тревожность"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "хроническая болезнь печени"
+    ],
+    "chronicConditionWarnings": [
+      "хроническая болезнь почек"
+    ],
+    "allergyWarnings": [
+      "глютен"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": true,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "кветиапин",
+    "name": "Кветиапин",
+    "form": "таблетки",
+    "dosage": "25 мг",
+    "dosages": [
+      "25 мг",
+      "100 мг",
+      "200 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      554,
+      573,
+      592
+    ],
+    "priceRub": 554.0,
+    "activeSubstances": [
+      "кветиапин"
+    ],
+    "indicationsSymptoms": [
+      "бессонница",
+      "депрессивное настроение"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "хроническая болезнь почек"
+    ],
+    "chronicConditionWarnings": [
+      "сахарный диабет"
+    ],
+    "allergyWarnings": [
+      "ацетилсалициловая кислота"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": true,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "венлафаксин",
+    "name": "Венлафаксин",
+    "form": "капсулы",
+    "dosage": "37.5 мг",
+    "dosages": [
+      "37.5 мг",
+      "75 мг",
+      "150 мг"
+    ],
+    "formsAvailable": [
+      "капсулы"
+    ],
+    "pricesRub": [
+      585,
+      604,
+      623
+    ],
+    "priceRub": 585.0,
+    "activeSubstances": [
+      "венлафаксин"
+    ],
+    "indicationsSymptoms": [
+      "депрессивное настроение",
+      "тревожность"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "сахарный диабет"
+    ],
+    "chronicConditionWarnings": [
+      "гипертония"
+    ],
+    "allergyWarnings": [
+      "НПВС"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": true,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "эсциталопрам",
+    "name": "Эсциталопрам",
+    "form": "таблетки",
+    "dosage": "5 мг",
+    "dosages": [
+      "5 мг",
+      "10 мг",
+      "15 мг",
+      "20 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      616,
+      635,
+      654,
+      673
+    ],
+    "priceRub": 616.0,
+    "activeSubstances": [
+      "эсциталопрам"
+    ],
+    "indicationsSymptoms": [
+      "депрессивное настроение",
+      "тревожность"
+    ],
+    "contraindications": [
+      "гипертония",
+      "гиперчувствительность"
+    ],
+    "chronicConditionWarnings": [
+      "язвенная болезнь"
+    ],
+    "allergyWarnings": [
+      "пенициллины"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": true,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "буспирон",
+    "name": "Буспирон",
+    "form": "таблетки",
+    "dosage": "5 мг",
+    "dosages": [
+      "5 мг",
+      "10 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      647,
+      666
+    ],
+    "priceRub": 647.0,
+    "activeSubstances": [
+      "буспирон"
+    ],
+    "indicationsSymptoms": [
+      "бессонница",
+      "тревожность"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "язвенная болезнь"
+    ],
+    "chronicConditionWarnings": [
+      "хроническая болезнь печени"
+    ],
+    "allergyWarnings": [
+      "лактоза"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": true,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "тразодон",
+    "name": "Тразодон",
+    "form": "таблетки",
+    "dosage": "50 мг",
+    "dosages": [
+      "50 мг",
+      "100 мг",
+      "150 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      678,
+      697,
+      716
+    ],
+    "priceRub": 678.0,
+    "activeSubstances": [
+      "тразодон"
+    ],
+    "indicationsSymptoms": [
+      "бессонница",
+      "депрессивное настроение"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "хроническая болезнь печени"
+    ],
+    "chronicConditionWarnings": [
+      "хроническая болезнь почек"
+    ],
+    "allergyWarnings": [
+      "глютен"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": true,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "арипипразол",
+    "name": "Арипипразол",
+    "form": "таблетки",
+    "dosage": "5 мг",
+    "dosages": [
+      "5 мг",
+      "10 мг",
+      "15 мг",
+      "20 мг",
+      "30 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      709,
+      728,
+      747,
+      766,
+      785
+    ],
+    "priceRub": 709.0,
+    "activeSubstances": [
+      "арипипразол"
+    ],
+    "indicationsSymptoms": [
+      "депрессивное настроение",
+      "тревожность"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "хроническая болезнь почек"
+    ],
+    "chronicConditionWarnings": [
+      "сахарный диабет"
+    ],
+    "allergyWarnings": [
+      "ацетилсалициловая кислота"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": true,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "метформин",
+    "name": "Метформин",
+    "form": "таблетки",
+    "dosage": "500 мг",
+    "dosages": [
+      "500 мг",
+      "850 мг",
+      "1000 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      740,
+      759,
+      778
+    ],
+    "priceRub": 740.0,
+    "activeSubstances": [
+      "метформин"
+    ],
+    "indicationsSymptoms": [
+      "тяжесть в животе",
+      "хроническая боль"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "сахарный диабет"
+    ],
+    "chronicConditionWarnings": [
+      "гипертония"
+    ],
+    "allergyWarnings": [
+      "НПВС"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 6,
+    "pregnancyContraindicated": false,
+    "prescriptionRequired": false
+  },
+  {
+    "id": "амоксициллин",
+    "name": "Амоксициллин",
+    "form": "капсулы",
+    "dosage": "250 мг",
+    "dosages": [
+      "250 мг",
+      "500 мг",
+      "1000 мг"
+    ],
+    "formsAvailable": [
+      "капсулы"
+    ],
+    "pricesRub": [
+      771,
+      790,
+      809
+    ],
+    "priceRub": 771.0,
+    "activeSubstances": [
+      "амоксициллин"
+    ],
+    "indicationsSymptoms": [
+      "боль в горле",
+      "лихорадка"
+    ],
+    "contraindications": [
+      "гипертония",
+      "гиперчувствительность"
+    ],
+    "chronicConditionWarnings": [
+      "язвенная болезнь"
+    ],
+    "allergyWarnings": [
+      "пенициллины"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": false,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "азитромицин",
+    "name": "Азитромицин",
+    "form": "таблетки",
+    "dosage": "250 мг",
+    "dosages": [
+      "250 мг",
+      "500 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      802,
+      821
+    ],
+    "priceRub": 802.0,
+    "activeSubstances": [
+      "азитромицин"
+    ],
+    "indicationsSymptoms": [
+      "боль в горле",
+      "кашель",
+      "лихорадка"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "язвенная болезнь"
+    ],
+    "chronicConditionWarnings": [
+      "хроническая болезнь печени"
+    ],
+    "allergyWarnings": [
+      "лактоза"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": false,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "цефтриаксон",
+    "name": "Цефтриаксон",
+    "form": "порошок для инъекций",
+    "dosage": "500 мг",
+    "dosages": [
+      "500 мг",
+      "1000 мг"
+    ],
+    "formsAvailable": [
+      "порошок для инъекций"
+    ],
+    "pricesRub": [
+      833,
+      852
+    ],
+    "priceRub": 833.0,
+    "activeSubstances": [
+      "цефтриаксон"
+    ],
+    "indicationsSymptoms": [
+      "боль в горле",
+      "лихорадка"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "хроническая болезнь печени"
+    ],
+    "chronicConditionWarnings": [
+      "хроническая болезнь почек"
+    ],
+    "allergyWarnings": [
+      "глютен"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": false,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "левофлоксацин",
+    "name": "Левофлоксацин",
+    "form": "таблетки",
+    "dosage": "250 мг",
+    "dosages": [
+      "250 мг",
+      "500 мг",
+      "750 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      864,
+      883,
+      902
+    ],
+    "priceRub": 864.0,
+    "activeSubstances": [
+      "левофлоксацин"
+    ],
+    "indicationsSymptoms": [
+      "кашель",
+      "лихорадка"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "хроническая болезнь почек"
+    ],
+    "chronicConditionWarnings": [
+      "сахарный диабет"
+    ],
+    "allergyWarnings": [
+      "ацетилсалициловая кислота"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": true,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "кларитромицин",
+    "name": "Кларитромицин",
+    "form": "таблетки",
+    "dosage": "250 мг",
+    "dosages": [
+      "250 мг",
+      "500 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      895,
+      914
+    ],
+    "priceRub": 895.0,
+    "activeSubstances": [
+      "кларитромицин"
+    ],
+    "indicationsSymptoms": [
+      "боль в горле",
+      "кашель"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "сахарный диабет"
+    ],
+    "chronicConditionWarnings": [
+      "гипертония"
+    ],
+    "allergyWarnings": [
+      "НПВС"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": false,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "моксифлоксацин",
+    "name": "Моксифлоксацин",
+    "form": "таблетки",
+    "dosage": "400 мг",
+    "dosages": [
+      "400 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      926
+    ],
+    "priceRub": 926.0,
+    "activeSubstances": [
+      "моксифлоксацин"
+    ],
+    "indicationsSymptoms": [
+      "кашель",
+      "лихорадка"
+    ],
+    "contraindications": [
+      "гипертония",
+      "гиперчувствительность"
+    ],
+    "chronicConditionWarnings": [
+      "язвенная болезнь"
+    ],
+    "allergyWarnings": [
+      "пенициллины"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": true,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "фуросемид",
+    "name": "Фуросемид",
+    "form": "таблетки",
+    "dosage": "20 мг",
+    "dosages": [
+      "20 мг",
+      "40 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      957,
+      976
+    ],
+    "priceRub": 957.0,
+    "activeSubstances": [
+      "фуросемид"
+    ],
+    "indicationsSymptoms": [
+      "тяжесть в животе",
+      "хроническая боль"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "язвенная болезнь"
+    ],
+    "chronicConditionWarnings": [
+      "хроническая болезнь печени"
+    ],
+    "allergyWarnings": [
+      "лактоза"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": false,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "спиронолактон",
+    "name": "Спиронолактон",
+    "form": "таблетки",
+    "dosage": "25 мг",
+    "dosages": [
+      "25 мг",
+      "50 мг",
+      "100 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      988,
+      1007,
+      1026
+    ],
+    "priceRub": 988.0,
+    "activeSubstances": [
+      "спиронолактон"
+    ],
+    "indicationsSymptoms": [
+      "тяжесть в животе",
+      "хроническая боль"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "хроническая болезнь печени"
+    ],
+    "chronicConditionWarnings": [
+      "хроническая болезнь почек"
+    ],
+    "allergyWarnings": [
+      "глютен"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": false,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "бисопролол",
+    "name": "Бисопролол",
+    "form": "таблетки",
+    "dosage": "2.5 мг",
+    "dosages": [
+      "2.5 мг",
+      "5 мг",
+      "10 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      1019,
+      1038,
+      1057
+    ],
+    "priceRub": 1019.0,
+    "activeSubstances": [
+      "бисопролол"
+    ],
+    "indicationsSymptoms": [
+      "головная боль",
+      "хроническая боль"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "хроническая болезнь почек"
+    ],
+    "chronicConditionWarnings": [
+      "сахарный диабет"
+    ],
+    "allergyWarnings": [
+      "ацетилсалициловая кислота"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": false,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "лозартан",
+    "name": "Лозартан",
+    "form": "таблетки",
+    "dosage": "25 мг",
+    "dosages": [
+      "25 мг",
+      "50 мг",
+      "100 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      1050,
+      1069,
+      1088
+    ],
+    "priceRub": 1050.0,
+    "activeSubstances": [
+      "лозартан"
+    ],
+    "indicationsSymptoms": [
+      "головная боль",
+      "хроническая боль"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "сахарный диабет"
+    ],
+    "chronicConditionWarnings": [
+      "гипертония"
+    ],
+    "allergyWarnings": [
+      "НПВС"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": false,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "амлодипин",
+    "name": "Амлодипин",
+    "form": "таблетки",
+    "dosage": "5 мг",
+    "dosages": [
+      "5 мг",
+      "10 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      1081,
+      1100
+    ],
+    "priceRub": 1081.0,
+    "activeSubstances": [
+      "амлодипин"
+    ],
+    "indicationsSymptoms": [
+      "головная боль",
+      "хроническая боль"
+    ],
+    "contraindications": [
+      "гипертония",
+      "гиперчувствительность"
+    ],
+    "chronicConditionWarnings": [
+      "язвенная болезнь"
+    ],
+    "allergyWarnings": [
+      "пенициллины"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": false,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "эналаприл",
+    "name": "Эналаприл",
+    "form": "таблетки",
+    "dosage": "5 мг",
+    "dosages": [
+      "5 мг",
+      "10 мг",
+      "20 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      1112,
+      1131,
+      1150
+    ],
+    "priceRub": 1112.0,
+    "activeSubstances": [
+      "эналаприл"
+    ],
+    "indicationsSymptoms": [
+      "головная боль",
+      "хроническая боль"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "язвенная болезнь"
+    ],
+    "chronicConditionWarnings": [
+      "хроническая болезнь печени"
+    ],
+    "allergyWarnings": [
+      "лактоза"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": true,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "рамиприл",
+    "name": "Рамиприл",
+    "form": "таблетки",
+    "dosage": "2.5 мг",
+    "dosages": [
+      "2.5 мг",
+      "5 мг",
+      "10 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      1143,
+      1162,
+      1181
+    ],
+    "priceRub": 1143.0,
+    "activeSubstances": [
+      "рамиприл"
+    ],
+    "indicationsSymptoms": [
+      "головная боль",
+      "хроническая боль"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "хроническая болезнь печени"
+    ],
+    "chronicConditionWarnings": [
+      "хроническая болезнь почек"
+    ],
+    "allergyWarnings": [
+      "глютен"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": true,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "аторвастатин",
+    "name": "Аторвастатин",
+    "form": "таблетки",
+    "dosage": "10 мг",
+    "dosages": [
+      "10 мг",
+      "20 мг",
+      "40 мг",
+      "80 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      1174,
+      1193,
+      1212,
+      1231
+    ],
+    "priceRub": 1174.0,
+    "activeSubstances": [
+      "аторвастатин"
+    ],
+    "indicationsSymptoms": [
+      "хроническая боль"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "хроническая болезнь почек"
+    ],
+    "chronicConditionWarnings": [
+      "сахарный диабет"
+    ],
+    "allergyWarnings": [
+      "ацетилсалициловая кислота"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": false,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "розувастатин",
+    "name": "Розувастатин",
+    "form": "таблетки",
+    "dosage": "5 мг",
+    "dosages": [
+      "5 мг",
+      "10 мг",
+      "20 мг",
+      "40 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      1205,
+      1224,
+      1243,
+      1262
+    ],
+    "priceRub": 1205.0,
+    "activeSubstances": [
+      "розувастатин"
+    ],
+    "indicationsSymptoms": [
+      "хроническая боль"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "сахарный диабет"
+    ],
+    "chronicConditionWarnings": [
+      "гипертония"
+    ],
+    "allergyWarnings": [
+      "НПВС"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": false,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "клопидогрел",
+    "name": "Клопидогрел",
+    "form": "таблетки",
+    "dosage": "75 мг",
+    "dosages": [
+      "75 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      1236
+    ],
+    "priceRub": 1236.0,
+    "activeSubstances": [
+      "клопидогрел"
+    ],
+    "indicationsSymptoms": [
+      "хроническая боль"
+    ],
+    "contraindications": [
+      "гипертония",
+      "гиперчувствительность"
+    ],
+    "chronicConditionWarnings": [
+      "язвенная болезнь"
+    ],
+    "allergyWarnings": [
+      "пенициллины"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": false,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "ацетилсалициловаякислота",
+    "name": "Ацетилсалициловая кислота",
+    "form": "таблетки",
+    "dosage": "500 мг",
+    "dosages": [
+      "500 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      1267
+    ],
+    "priceRub": 1267.0,
+    "activeSubstances": [
+      "ацетилсалициловая кислота"
+    ],
+    "indicationsSymptoms": [
+      "боль в суставах",
+      "головная боль"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "язвенная болезнь"
+    ],
+    "chronicConditionWarnings": [
+      "хроническая болезнь печени"
+    ],
+    "allergyWarnings": [
+      "лактоза"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 6,
+    "pregnancyContraindicated": false,
+    "prescriptionRequired": false
+  },
+  {
+    "id": "варфарин",
+    "name": "Варфарин",
+    "form": "таблетки",
+    "dosage": "2.5 мг",
+    "dosages": [
+      "2.5 мг",
+      "5 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      1298,
+      1317
+    ],
+    "priceRub": 1298.0,
+    "activeSubstances": [
+      "варфарин"
+    ],
+    "indicationsSymptoms": [
+      "хроническая боль"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "хроническая болезнь печени"
+    ],
+    "chronicConditionWarnings": [
+      "хроническая болезнь почек"
+    ],
+    "allergyWarnings": [
+      "глютен"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": true,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  },
+  {
+    "id": "ривароксабан",
+    "name": "Ривароксабан",
+    "form": "таблетки",
+    "dosage": "2.5 мг",
+    "dosages": [
+      "2.5 мг",
+      "10 мг",
+      "15 мг",
+      "20 мг"
+    ],
+    "formsAvailable": [
+      "таблетки"
+    ],
+    "pricesRub": [
+      1329,
+      1348,
+      1367,
+      1386
+    ],
+    "priceRub": 1329.0,
+    "activeSubstances": [
+      "ривароксабан"
+    ],
+    "indicationsSymptoms": [
+      "хроническая боль"
+    ],
+    "contraindications": [
+      "гиперчувствительность",
+      "хроническая болезнь почек"
+    ],
+    "chronicConditionWarnings": [
+      "сахарный диабет"
+    ],
+    "allergyWarnings": [
+      "ацетилсалициловая кислота"
+    ],
+    "sideEffects": [
+      "тошнота (редко)",
+      "головокружение (редко)"
+    ],
+    "minAge": 18,
+    "pregnancyContraindicated": true,
+    "prescriptionRequired": true,
+    "notes": "Требуется рецепт врача."
+  }
+]

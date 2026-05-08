@@ -1,0 +1,25 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: prill
+      POSTGRES_USER: prill
+      POSTGRES_PASSWORD: prill
+    ports:
+      - "5432:5432"
+    volumes:
+      - prill_pgdata:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: ./backend
+    environment:
+      DATABASE_URL: postgresql+psycopg://prill:prill@db:5432/prill
+      CORS_ORIGINS: "*"
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+volumes:
+  prill_pgdata:
