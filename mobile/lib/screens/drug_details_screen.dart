@@ -560,6 +560,7 @@ class _DrugImageBox extends StatelessWidget {
     if (idx == null) return out;
 
     final base = _defaultApiBase.trim().replaceAll(RegExp(r'/$'), '');
+    add('$base/media/drugs/$idx');
     for (final e in _ext) {
       add('$base/static/drugs/$idx.$e');
     }

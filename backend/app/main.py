@@ -5,6 +5,8 @@ from typing import Annotated
 
 from fastapi import Depends, FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session, selectinload
 
@@ -16,6 +18,16 @@ from .seed import seed_from_mobile_json
 from .settings import settings
 
 app = FastAPI(title="PRILL API", version="0.1.0")
+
+
+def _image_file_path_for(index: int) -> Path | None:
+    ext = _IMAGE_EXT_BY_INDEX.get(index)
+    if ext is None:
+        return None
+    path = _STATIC_DRUGS_DIR / f"{index}{ext}"
+    if not path.exists() or not path.is_file():
+        return None
+    return path
 
 _IMAGE_INDEX_BY_DRUG_ID = {
     "парацетамол": 1,
@@ -94,7 +106,15 @@ def _image_url_for(drug_id: str) -> str | None:
     index = _image_index_for(drug_id)
     if not base or index is None:
         return None
-    return f"{base}/{index}.jpg"
+    return f"{base}/{index}"
+
+
+@app.get("/media/drugs/{index}")
+def drug_image(index: int):
+    path = _image_file_path_for(index)
+    if path is None:
+        raise HTTPException(status_code=404, detail="Image not found")
+    return FileResponse(path)
 
 app.add_middleware(
     CORSMiddleware,
