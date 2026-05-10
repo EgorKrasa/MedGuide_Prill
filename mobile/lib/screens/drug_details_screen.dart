@@ -1,6 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 
+import '../config/api_config.dart';
 import '../data/drug_repository.dart';
 import '../models/drug.dart';
 import '../theme/app_spacing.dart';
@@ -388,10 +389,6 @@ class _DrugImageBox extends StatelessWidget {
   });
 
   static const _ext = ['jpg', 'jpeg', 'png', 'webp'];
-  static const _defaultApiBase = String.fromEnvironment(
-    'PRILL_API_URL',
-    defaultValue: 'https://prill-api.onrender.com',
-  );
   static Future<Set<String>>? _manifestAssetsFuture;
   static const Map<String, int> _indexById = {
     'парацетамол': 1,
@@ -555,7 +552,7 @@ class _DrugImageBox extends StatelessWidget {
     final idx = imageIndex ?? _indexById[drugId.trim().toLowerCase()];
     if (idx == null) return out;
 
-    final base = _defaultApiBase.trim().replaceAll(RegExp(r'/$'), '');
+    final base = ApiConfig.baseUrl.trim().replaceAll(RegExp(r'/$'), '');
     add('$base/media/drugs/$idx');
     for (final e in _ext) {
       add('$base/static/drugs/$idx.$e');

@@ -427,7 +427,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         for (final s in _suggestions)
                           ActionChip(
-                            label: Text(s),
+                            label: Text(
+                              s,
+                              style: TextStyle(
+                                color: colors.onSurface,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
                             onPressed: () => _pickSuggestion(s),
                           ),
                       ],
@@ -441,7 +447,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         for (final s in _selectedSymptoms)
                           InputChip(
-                            label: Text(s),
+                            label: Text(
+                              s,
+                              style: TextStyle(
+                                color: colors.onSurface,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
                             onDeleted: () => _removeSymptom(s),
                           ),
                       ],

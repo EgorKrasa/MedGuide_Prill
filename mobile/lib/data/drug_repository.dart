@@ -2,13 +2,13 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
+import '../config/api_config.dart';
 import '../models/drug.dart';
 import 'api_cache_store.dart';
 import 'local_catalog_service.dart';
 
 class DrugRepository {
-  DrugRepository({String? apiBaseUrl})
-      : _apiBaseUrl = apiBaseUrl ?? const String.fromEnvironment('PRILL_API_URL', defaultValue: '');
+  DrugRepository({String? apiBaseUrl}) : _apiBaseUrl = apiBaseUrl ?? ApiConfig.baseUrl;
 
   final String _apiBaseUrl;
   final _cache = ApiCacheStore();

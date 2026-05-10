@@ -72,7 +72,14 @@ class PrillApp extends StatelessWidget {
         chipTheme: ChipThemeData(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           side: BorderSide(color: colorScheme.outlineVariant),
-          labelStyle: const TextStyle(fontWeight: FontWeight.w600),
+          labelStyle: TextStyle(
+            fontWeight: FontWeight.w600,
+            color: colorScheme.onSurface,
+          ),
+          secondaryLabelStyle: TextStyle(
+            fontWeight: FontWeight.w600,
+            color: colorScheme.onSurfaceVariant,
+          ),
           backgroundColor: Colors.white,
         ),
         filledButtonTheme: FilledButtonThemeData(
