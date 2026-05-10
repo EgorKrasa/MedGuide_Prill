@@ -515,10 +515,39 @@ class _HomeScreenState extends State<HomeScreen> {
           Expanded(
             child: values.isEmpty
                 ? Center(
-                    child: Text(
-                      search.isEmpty
-                          ? 'Пока пусто. Добавь препараты в избранное из карточки.'
-                          : 'Ничего не найдено.',
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 32),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            search.isEmpty ? Icons.bookmark_add_outlined : Icons.search_off_rounded,
+                            size: 56,
+                            color: Theme.of(context).colorScheme.primary.withOpacity(0.85),
+                          ),
+                          const SizedBox(height: 20),
+                          Text(
+                            search.isEmpty ? 'Пока пусто' : 'Ничего не найдено',
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                                  fontWeight: FontWeight.w800,
+                                  color: Theme.of(context).colorScheme.onSurface,
+                                ),
+                          ),
+                          if (search.isEmpty) ...[
+                            const SizedBox(height: 10),
+                            Text(
+                              'Добавь препараты в избранное из карточки препарата.',
+                              textAlign: TextAlign.center,
+                              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                                    height: 1.35,
+                                  ),
+                            ),
+                          ],
+                        ],
+                      ),
                     ),
                   )
                 : ListView.separated(

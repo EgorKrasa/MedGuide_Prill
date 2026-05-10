@@ -295,11 +295,6 @@ class _HeaderCard extends StatelessWidget {
           price != null ? 'от $price ₽' : 'Цена уточняется',
           style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w800),
         ),
-        const SizedBox(height: 10),
-        FilledButton(
-          onPressed: null,
-          child: const Text('Купить (скоро)'),
-        ),
       ],
     );
   }
