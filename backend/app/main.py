@@ -163,8 +163,8 @@ def health() -> dict:
 def admin_seed(
     db: Annotated[Session, Depends(get_db)],
     mobile_assets_path: str = Query(
-        default="../mobile/assets/drugs.json",
-        description="Путь до mobile/assets/drugs.json (для демо-сидирования)",
+        default="seed_data/drugs.json",
+        description="Путь до drugs.json (по умолчанию bundled app/seed_data/drugs.json)",
     ),
     token: str | None = Query(default=None, description="Токен админ-доступа для production seed"),
 ) -> dict:

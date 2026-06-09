@@ -9,13 +9,15 @@ from sqlalchemy.orm import Session
 from .models import Drug, Symptom, drug_symptoms
 
 _BACKEND_ROOT = Path(__file__).resolve().parents[1]
+_APP_ROOT = Path(__file__).resolve().parent
 _REPO_ROOT = _BACKEND_ROOT.parent
 
 
 def resolve_drugs_json_path(mobile_assets_path: str) -> Path:
-    """Ищет drugs.json: явный путь, backend/data, mobile/assets (Render/local)."""
+    """Ищет drugs.json: bundled seed_data, backend/data, mobile/assets."""
     raw = Path(mobile_assets_path)
-    candidates: list[Path] = []
+    bundled = _APP_ROOT / "seed_data" / "drugs.json"
+    candidates: list[Path] = [bundled]
     if raw.is_absolute():
         candidates.append(raw)
     else:
