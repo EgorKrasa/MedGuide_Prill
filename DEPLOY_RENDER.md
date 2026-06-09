@@ -36,10 +36,18 @@ uvicorn app.main:app --host 0.0.0.0 --port $PORT
 POST /admin/seed?token=<SEED_ADMIN_TOKEN>
 ```
 
-Пример PowerShell:
+Пример PowerShell (кавычка в конце обязательна — одна строка):
 
 ```powershell
-Invoke-RestMethod -Method Post "https://<service>.onrender.com/admin/seed?token=<SEED_ADMIN_TOKEN>"
+Invoke-RestMethod -Method Post -Uri "https://<service>.onrender.com/admin/seed?token=<SEED_ADMIN_TOKEN>"
+```
+
+Проверка API (URL не вводят «голым» — только через `-Uri` или браузер):
+
+```powershell
+Invoke-RestMethod -Uri "https://<service>.onrender.com/health"
+Invoke-RestMethod -Uri "https://<service>.onrender.com/drugs?limit=3"
+Invoke-RestMethod -Uri "https://<service>.onrender.com/symptoms?query=голов&limit=5"
 ```
 
 ## 4) Фото в облаке

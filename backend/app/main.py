@@ -170,7 +170,10 @@ def admin_seed(
 ) -> dict:
     if not _seed_auth_ok(token):
         raise HTTPException(status_code=403, detail="Forbidden")
-    return seed_from_mobile_json(db, mobile_assets_path)
+    try:
+        return seed_from_mobile_json(db, mobile_assets_path)
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
 
 
 @app.get("/symptoms", response_model=list[SymptomOut])

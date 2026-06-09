@@ -8,9 +8,35 @@ from sqlalchemy.orm import Session
 
 from .models import Drug, Symptom, drug_symptoms
 
+_BACKEND_ROOT = Path(__file__).resolve().parents[1]
+_REPO_ROOT = _BACKEND_ROOT.parent
+
+
+def resolve_drugs_json_path(mobile_assets_path: str) -> Path:
+    """Ищет drugs.json: явный путь, backend/data, mobile/assets (Render/local)."""
+    raw = Path(mobile_assets_path)
+    candidates: list[Path] = []
+    if raw.is_absolute():
+        candidates.append(raw)
+    else:
+        candidates.extend(
+            [
+                Path.cwd() / raw,
+                _BACKEND_ROOT / raw,
+                _REPO_ROOT / raw,
+                _BACKEND_ROOT / "data" / "drugs.json",
+                _REPO_ROOT / "mobile" / "assets" / "drugs.json",
+            ]
+        )
+    for path in candidates:
+        if path.is_file():
+            return path
+    tried = ", ".join(str(p) for p in candidates)
+    raise FileNotFoundError(f"drugs.json not found. Tried: {tried}")
+
 
 def seed_from_mobile_json(db: Session, mobile_assets_path: str) -> dict:
-    path = Path(mobile_assets_path)
+    path = resolve_drugs_json_path(mobile_assets_path)
     data = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(data, list):
         return {"inserted_drugs": 0, "inserted_symptoms": 0}
