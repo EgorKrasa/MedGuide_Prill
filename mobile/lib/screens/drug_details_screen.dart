@@ -1,11 +1,10 @@
-import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 
-import '../config/api_config.dart';
 import '../data/drug_repository.dart';
 import '../models/drug.dart';
 import '../theme/app_spacing.dart';
 import '../utils/dosage_sort.dart';
+import '../widgets/drug_image_box.dart';
 
 class DrugDetailsScreen extends StatefulWidget {
   final Drug drug;
@@ -285,7 +284,7 @@ class _HeaderCard extends StatelessWidget {
       children: [
         AspectRatio(
           aspectRatio: 4 / 3,
-          child: _DrugImageBox(
+          child: DrugImageBox(
             drugId: drug.id,
             imageIndex: drug.imageIndex,
             imageUrl: drug.imageUrl,
@@ -373,212 +372,6 @@ class _HeaderCard extends StatelessWidget {
           Expanded(child: Text(v)),
         ],
       ),
-    );
-  }
-}
-
-class _DrugImageBox extends StatelessWidget {
-  final String drugId;
-  final int? imageIndex;
-  final String? imageUrl;
-
-  const _DrugImageBox({
-    required this.drugId,
-    this.imageIndex,
-    this.imageUrl,
-  });
-
-  static const _ext = ['jpg', 'jpeg', 'png', 'webp'];
-  static Future<Set<String>>? _manifestAssetsFuture;
-  static const Map<String, int> _indexById = {
-    'парацетамол': 1,
-    'ибупрофен': 2,
-    'нимесулид': 3,
-    'омепразол': 4,
-    'панкреатин': 5,
-    'амброксол': 6,
-    'лоратадин': 7,
-    'дротаверин': 8,
-    'лоперамид': 9,
-    'сертралин': 10,
-    'флуоксетин': 11,
-    'амитриптилин': 12,
-    'диазепам': 13,
-    'феназепам': 14,
-    'кветиапин': 15,
-    'венлафаксин': 16,
-    'эсциталопрам': 17,
-    'буспирон': 18,
-    'тразодон': 19,
-    'арипипразол': 20,
-    'метформин': 21,
-    'амоксициллин': 22,
-    'азитромицин': 23,
-    'цефтриаксон': 24,
-    'левофлоксацин': 25,
-    'кларитромицин': 26,
-    'моксифлоксацин': 27,
-    'фуросемид': 28,
-    'спиронолактон': 29,
-    'бисопролол': 30,
-    'лозартан': 31,
-    'амлодипин': 32,
-    'эналаприл': 33,
-    'рамиприл': 34,
-    'аторвастатин': 35,
-    'розувастатин': 36,
-    'клопидогрел': 37,
-    'ацетилсалициловаякислота': 38,
-    'варфарин': 39,
-    'ривароксабан': 40,
-  };
-
-  List<String> _candidates() {
-    final idx = imageIndex ?? _indexById[drugId.trim().toLowerCase()];
-    final out = <String>[];
-    if (idx == null) return out;
-    for (final e in _ext) {
-      out.add('assets/images/drugs/$idx.$e');
-      out.add('assets/images/$idx.$e');
-    }
-    return out;
-  }
-
-  Future<String?> _resolveAsset() async {
-    final assets = await _knownAssets();
-    for (final p in _candidates()) {
-      if (assets.contains(p)) return p;
-    }
-    return null;
-  }
-
-  static Future<Set<String>> _knownAssets() {
-    return _manifestAssetsFuture ??= () async {
-      try {
-        final manifest = await AssetManifest.loadFromAssetBundle(rootBundle);
-        return manifest.listAssets().toSet();
-      } catch (_) {
-        return <String>{};
-      }
-    }();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final cs = Theme.of(context).colorScheme;
-    return FutureBuilder<String?>(
-      future: _resolveAsset(),
-      builder: (context, snap) {
-        final asset = snap.data;
-        final placeholder = Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: cs.surfaceContainerHighest.withOpacity(0.6),
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: cs.outlineVariant),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(Icons.image_outlined, size: 48, color: cs.primary),
-              const SizedBox(height: 8),
-              Text('Фото товара', style: Theme.of(context).textTheme.titleSmall),
-              const SizedBox(height: 2),
-              Text('Скоро добавим', style: Theme.of(context).textTheme.bodySmall),
-            ],
-          ),
-        );
-
-        Widget fromAsset() {
-          if (asset == null || asset.isEmpty) return placeholder;
-          return Image.asset(
-            asset,
-            fit: BoxFit.contain,
-            width: double.infinity,
-            height: double.infinity,
-            alignment: Alignment.center,
-          );
-        }
-
-        final remoteCandidates = _remoteCandidates();
-        Widget content;
-        if (remoteCandidates.isNotEmpty) {
-          content = _networkWithFallback(
-            urls: remoteCandidates,
-            fallback: fromAsset(),
-          );
-        } else if (asset != null && asset.isNotEmpty) {
-          content = fromAsset();
-        } else {
-          return placeholder;
-        }
-
-        return Container(
-          width: double.infinity,
-          clipBehavior: Clip.antiAlias,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: cs.outlineVariant),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(8),
-            child: AnimatedSwitcher(
-              duration: const Duration(milliseconds: 220),
-              child: content,
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-  List<String> _remoteCandidates() {
-    final out = <String>[];
-    final seen = <String>{};
-    final remote = imageUrl?.trim() ?? '';
-
-    void add(String url) {
-      final u = url.trim();
-      if (u.isEmpty || seen.contains(u)) return;
-      seen.add(u);
-      out.add(u);
-    }
-
-    if (remote.isNotEmpty && !remote.contains('example.com')) {
-      add(remote);
-    }
-
-    final idx = imageIndex ?? _indexById[drugId.trim().toLowerCase()];
-    if (idx == null) return out;
-
-    final base = ApiConfig.baseUrl.trim().replaceAll(RegExp(r'/$'), '');
-    add('$base/media/drugs/$idx');
-    for (final e in _ext) {
-      add('$base/static/drugs/$idx.$e');
-    }
-    return out;
-  }
-
-  Widget _networkWithFallback({
-    required List<String> urls,
-    required Widget fallback,
-    int index = 0,
-  }) {
-    if (index >= urls.length) return fallback;
-    return Image.network(
-      urls[index],
-      fit: BoxFit.contain,
-      width: double.infinity,
-      height: double.infinity,
-      alignment: Alignment.center,
-      errorBuilder: (context, error, stackTrace) {
-        return _networkWithFallback(
-          urls: urls,
-          fallback: fallback,
-          index: index + 1,
-        );
-      },
     );
   }
 }

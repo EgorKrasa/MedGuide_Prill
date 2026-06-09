@@ -118,18 +118,22 @@ def _image_index_for(drug_id: str) -> int | None:
     return _IMAGE_INDEX_BY_DRUG_ID.get(drug_id.strip().lower())
 
 
-def _image_url_for(drug_id: str) -> str | None:
+def _public_api_base() -> str:
     base = settings.image_base_url.strip().rstrip("/")
+    for suffix in ("/media/drugs", "/static/drugs"):
+        if base.endswith(suffix):
+            return base[: -len(suffix)]
+    return base
+
+
+def _image_url_for(drug_id: str) -> str | None:
     index = _image_index_for(drug_id)
-    if not base or index is None:
+    if index is None:
         return None
-    # Support both URL styles:
-    # - /media/drugs/{id} (no extension)
-    # - /static/drugs/{id}.{ext}
-    if base.endswith("/media/drugs"):
-        return f"{base}/{index}"
-    ext = _IMAGE_EXT_BY_INDEX.get(index, ".jpg")
-    return f"{base}/{index}{ext}"
+    api_base = _public_api_base().rstrip("/")
+    if not api_base:
+        api_base = "https://prill-api.onrender.com"
+    return f"{api_base}/media/drugs/{index}"
 
 
 @app.get("/media/drugs/{index}")
