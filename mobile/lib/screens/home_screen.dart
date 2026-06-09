@@ -5,13 +5,21 @@ import '../data/local_catalog_service.dart';
 import '../data/drug_repository.dart';
 import '../data/local_store.dart';
 import '../models/drug.dart';
-import '../models/patient_profile.dart';
+import '../models/app_settings.dart';
 import '../theme/app_spacing.dart';
 import 'drug_details_screen.dart';
 import 'results_screen.dart';
+import 'settings_tab.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({
+    super.key,
+    required this.settings,
+    required this.onSettingsChanged,
+  });
+
+  final AppSettings settings;
+  final ValueChanged<AppSettings> onSettingsChanged;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -26,7 +34,6 @@ class _HomeScreenState extends State<HomeScreen> {
   final _favoritesSearchController = TextEditingController();
 
   String? _error;
-  PatientProfile _profile = const PatientProfile();
   Set<String> _favorites = <String>{};
   String _searchMode = 'symptom';
 
@@ -64,11 +71,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> _initLocalData() async {
-    final profile = await _store.loadProfile();
     final favorites = await _store.loadFavorites();
     if (!mounted) return;
     setState(() {
-      _profile = profile;
       _favorites = favorites.map((e) => e.trim().toLowerCase()).toSet();
     });
   }
@@ -183,14 +188,13 @@ class _HomeScreenState extends State<HomeScreen> {
         results = await _repo.searchByMode(mode: mode, query: freeQuery);
       }
       results = mergeDrugsByPrimaryActiveSubstance(results);
-      final filtered = _applyProfileFilter(results);
       if (!mounted) return;
 
       await Navigator.of(context).push(
         MaterialPageRoute(
           builder: (_) => ResultsScreen(
             symptoms: mode == 'symptom' ? List.unmodifiable(selectedSymptoms) : const <String>[],
-            results: filtered,
+            results: results,
             favorites: _favorites,
             onToggleFavorite: _toggleFavorite,
           ),
@@ -226,7 +230,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ? 'Поиск'
                   : _mobileTab == 1
                       ? 'Избранное'
-                      : 'Профиль')
+                      : 'Настройки')
               : 'Клинический справочник',
         ),
         actions: compact ? const [] : _desktopTopTabs(colors),
@@ -237,7 +241,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 _buildSearchTab(context, canSearch, colors),
                 _buildFavoritesTab(context),
-                _buildProfileTab(context),
+                _buildSettingsTab(context),
               ],
             )
           : IndexedStack(
@@ -245,7 +249,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 _buildDesktopShell(_buildSearchTab(context, canSearch, colors)),
                 _buildDesktopShell(_buildFavoritesTab(context)),
-                _buildDesktopShell(_buildProfileTab(context)),
+                _buildDesktopShell(_buildSettingsTab(context)),
               ],
             ),
       bottomNavigationBar: compact
@@ -264,9 +268,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   label: 'Избранное',
                 ),
                 NavigationDestination(
-                  icon: Icon(Icons.person_outline_rounded),
-                  selectedIcon: Icon(Icons.person_rounded),
-                  label: 'Профиль',
+                  icon: Icon(Icons.settings_outlined),
+                  selectedIcon: Icon(Icons.settings_rounded),
+                  label: 'Настройки',
                 ),
               ],
             )
@@ -333,7 +337,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return [
       tab(0, Icons.search_rounded, 'Поиск'),
       tab(1, Icons.bookmark_border_rounded, 'Избранное'),
-      tab(2, Icons.person_outline, 'Профиль'),
+      tab(2, Icons.settings_outlined, 'Настройки'),
     ];
   }
 
@@ -619,43 +623,10 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildProfileTab(BuildContext context) {
-    return Padding(
-      padding: AppSpacing.screenPaddingFor(context),
-      child: ListView(
-        children: [
-          Card(
-            child: Padding(
-              padding: AppSpacing.cardPadding,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('Профиль пациента', style: Theme.of(context).textTheme.titleLarge),
-                  SizedBox(height: AppSpacing.gap),
-                  Text('Возраст: ${_profile.age?.toString() ?? 'не указан'}'),
-                  const SizedBox(height: 6),
-                  Text('Беременность: ${_profile.pregnant ? 'да' : 'нет'}'),
-                  const SizedBox(height: 6),
-                  Text(
-                    'Хронические болезни: '
-                    '${_profile.chronicConditions.isEmpty ? 'не указаны' : _profile.chronicConditions.join(', ')}',
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    'Аллергии: ${_profile.allergies.isEmpty ? 'не указаны' : _profile.allergies.join(', ')}',
-                  ),
-                  SizedBox(height: AppSpacing.gap),
-                  FilledButton.icon(
-                    onPressed: _editProfile,
-                    icon: const Icon(Icons.edit_outlined),
-                    label: const Text('Изменить профиль'),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
+  Widget _buildSettingsTab(BuildContext context) {
+    return SettingsTab(
+      settings: widget.settings,
+      onChanged: widget.onSettingsChanged,
     );
   }
 
@@ -767,25 +738,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  List<Drug> _applyProfileFilter(List<Drug> source) {
-    final age = _profile.age;
-    final chronic = _profile.chronicConditions.map((e) => e.toLowerCase()).toList();
-    final allergies = _profile.allergies.map((e) => e.toLowerCase()).toList();
-    final filtered = <Drug>[];
-    for (final d in source) {
-      if (age != null && d.minAge != null && age < d.minAge!) continue;
-      if (_profile.pregnant && d.pregnancyContraindicated) continue;
-      if (d.chronicConditionWarnings.any((w) => chronic.any((c) => w.toLowerCase().contains(c)))) {
-        continue;
-      }
-      if (d.allergyWarnings.any((w) => allergies.any((a) => w.toLowerCase().contains(a)))) {
-        continue;
-      }
-      filtered.add(d);
-    }
-    return filtered;
-  }
-
   Future<void> _toggleFavorite(String drugId) async {
     final normalized = _normalizeFavoriteKey(drugId);
     final next = {..._favorites};
@@ -800,106 +752,6 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       _favorites = reloaded;
     });
-  }
-
-  Future<void> _editProfile() async {
-    final ageCtl = TextEditingController(text: _profile.age?.toString() ?? '');
-    final chronicCtl = TextEditingController(text: _profile.chronicConditions.join(', '));
-    final allergyCtl = TextEditingController(text: _profile.allergies.join(', '));
-    var pregnant = _profile.pregnant;
-
-    Widget form(BuildContext context, void Function(void Function()) setSheetState) {
-      return Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const Text('Профиль пациента', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
-          const SizedBox(height: 12),
-          TextField(controller: ageCtl, keyboardType: TextInputType.number, decoration: const InputDecoration(labelText: 'Возраст')),
-          const SizedBox(height: 10),
-          SwitchListTile(
-            contentPadding: EdgeInsets.zero,
-            title: const Text('Беременность'),
-            value: pregnant,
-            onChanged: (v) => setSheetState(() => pregnant = v),
-          ),
-          TextField(
-            controller: chronicCtl,
-            decoration: const InputDecoration(labelText: 'Хронические болезни (через запятую)'),
-          ),
-          const SizedBox(height: 10),
-          TextField(
-            controller: allergyCtl,
-            decoration: const InputDecoration(labelText: 'Аллергии (через запятую)'),
-          ),
-          const SizedBox(height: 12),
-          FilledButton(
-            onPressed: () async {
-              final profile = PatientProfile(
-                age: int.tryParse(ageCtl.text.trim()),
-                pregnant: pregnant,
-                chronicConditions: _splitCsv(chronicCtl.text),
-                allergies: _splitCsv(allergyCtl.text),
-              );
-              await _store.saveProfile(profile);
-              final reloaded = await _store.loadProfile();
-              if (!mounted) return;
-              setState(() => _profile = reloaded);
-              Navigator.pop(context);
-            },
-            child: const Text('Сохранить профиль'),
-          ),
-        ],
-      );
-    }
-
-    if (AppSpacing.compactLayout(context)) {
-      await showModalBottomSheet<void>(
-        context: context,
-        isScrollControlled: true,
-        builder: (context) {
-          return Padding(
-            padding: EdgeInsets.only(
-              left: 16,
-              right: 16,
-              top: 16,
-              bottom: 16 + MediaQuery.of(context).viewInsets.bottom,
-            ),
-            child: StatefulBuilder(
-              builder: (context, setSheetState) => form(context, setSheetState),
-            ),
-          );
-        },
-      );
-      return;
-    }
-
-    await showDialog<void>(
-      context: context,
-      builder: (context) {
-        return Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 560),
-            child: Material(
-              borderRadius: BorderRadius.circular(16),
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: StatefulBuilder(
-                  builder: (context, setSheetState) => form(context, setSheetState),
-                ),
-              ),
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-  static List<String> _splitCsv(String raw) {
-    return raw
-        .split(',')
-        .map((e) => e.trim())
-        .where((e) => e.isNotEmpty)
-        .toList(growable: false);
   }
 
   TextEditingController _currentTextController() {
